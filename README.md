@@ -26,7 +26,7 @@ UIPlate
 ├─ .storybook              // Storybook設定ファイル等
 ├─ public                  // 開発環境で出力されるディレクトリ
 |  ├─ mock.json            // apiモックデータ
-|  ├─ shift.js             // 出力ソース
+|  ├─ index.js             // 出力ソース
 |  └─ index.html           // 確認用HTML
 ├─ node_modules
 ├─ src
@@ -95,7 +95,7 @@ devDependencies
 |typescript|^3.7.3| TypeScript(AltJS)|
 |url-loader|^3.0.0| アイコンファイルを取り込む用|
 |webpack|^4.41.2| webpack(bundle)|
-|webpack-bundle-analyzer|^3.6.0| dress.js解析用|
+|webpack-bundle-analyzer|^3.6.0| index.js解析用|
 |webpack-cli|^3.3.10| webpack(bundle)|
 |webpack-dev-server|^3.9.0| webpack開発用サーバ|
 
@@ -117,4 +117,4 @@ devDependencies
 |start|`concurrently \"webpack-dev-server --config webpack.config.js --hot\" \"json-server --watch public/mock.json -p 3003\"`|// 開発用サーバ起動(起動中は変更検知して自動ビルド)＆モックサーバ起動|
 |storybook|`start-storybook -p 6006 -s ./public`| Storybookサーバ起動(起動中は変更検知して自動ビルド)|
 |build-storybook|`build-storybook`| Storybookビルド|
-|analyze|`webpack --config webpack.config.analyze.js`|shift.js解析結果起動|
+|analyze|`webpack --config webpack.config.analyze.js`|index.js解析結果表示|
