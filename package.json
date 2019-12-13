@@ -1,0 +1,99 @@
+{
+  "name": "uiplate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "format": "prettier-eslint --write $PWD/'src/**/*.{ts,tsx}",
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "fix": "eslint src/**/*.{ts,tsx} --fix",
+    "precommit": "lint-staged",
+    "test": "jest",
+    "start": "concurrently \"webpack-dev-server --config webpack.config.js --hot\" \"json-server --watch public/mock.json -p 3003\"",
+    "storybook": "start-storybook -p 6006 -s ./public",
+    "build-storybook": "build-storybook",
+    "analyze": "webpack --config webpack.config.analyze.js"
+  },
+  "lint-staged": {
+    "linters": {
+      "*.{ts,tsx}": [
+        "prettier-eslint --write",
+        "git add"
+      ]
+    },
+    "ignore": [
+      "public/**/*.*"
+    ]
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.(ts|tsx)?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx)?$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx",
+      "ts",
+      "tsx",
+      "json",
+      "node"
+    ],
+    "setupFilesAfterEnv": [
+      "./test/setupTest.ts"
+    ]
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.7.2",
+    "@material-ui/icons": "^4.5.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "reset-css": "^5.0.1",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.16",
+    "@types/react-dom": "^16.9.4",
+    "@types/styled-components": "^4.4.1",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.1",
+    "css-loader": "^3.3.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "file-loader": "^5.0.2",
+    "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "json-server": "^0.15.1",
+    "lint-staged": "^9.5.0",
+    "prettier-eslint": "^9.0.1",
+    "prettier-eslint-cli": "^5.0.0",
+    "style-loader": "^1.0.1",
+    "ts-jest": "^24.2.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  }
+}
